@@ -7,23 +7,23 @@ public class Calculator
 	            Float.valueOf(args[1])));
 	}
 	
-	private float add(float value1, float value2) {
+	public float add(float value1, float value2) {
 	    return value1 + value2;
 	}
 	
-	private float sub(float value1, float value2) {
+	public float sub(float value1, float value2) {
 	    return value1 - value2;
 	}
 	
-	private float mul(float value1, float value2) {
+	public float mul(float value1, float value2) {
 	    return value1 * value2;
 	}
 	
-	private float div(float value1, float value2) {
+	public float div(float value1, float value2) {
 	    return value1 / value2;
 	}
 	
-	private float pow(float value1, float value2) {
+	public float pow(float value1, float value2) {
 	    float temp = value1;
 	    for(int i = 0; i < (int) value2 - 1; i++) { 
 	        value1 *= temp; 
