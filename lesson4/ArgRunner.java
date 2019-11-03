@@ -6,8 +6,8 @@ public class ArgRunner
 		Calculator calc = new Calculator();
 		Scanner sc = new Scanner(System.in);
 		String clean = "нет";
-		calc.setValue1(Float.valueOf(args[0]));
-		calc.setValue2(Float.valueOf(args[2]));
+		calc.setLeft(Float.valueOf(args[0]));
+		calc.setRight(Float.valueOf(args[2]));
 		calc.setOperation(args[1]);
 		calc.doOperation();
 		System.out.println("Результат - " + calc.getResult());
