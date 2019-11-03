@@ -9,9 +9,9 @@ public class InteractRunner {
 		Scanner sc = new Scanner(System.in);		
 		while(!exit.equals("да")) {	
 			System.out.print("Введите первую цифру:");
-			calc.setValue1(Float.valueOf(sc.next()));
+			calc.setLeft(Float.valueOf(sc.next()));
 			System.out.print("Введите вторую цифру:");
-			calc.setValue2(Float.valueOf(sc.next()));
+			calc.setRight(Float.valueOf(sc.next()));
 			System.out.print("Введите символ операции.\n"
 			    + "Выберите между: +, -, *, /, ^");
 			calc.setOperation(sc.next());
