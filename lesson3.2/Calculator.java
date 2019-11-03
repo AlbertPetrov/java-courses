@@ -7,27 +7,27 @@ public class Calculator
 	            Float.valueOf(args[1])));
 	}
 	
-	public float add(float value1, float value2) {
-	    return value1 + value2;
+	public float add(float left, float right) {
+	    return left + right;
 	}
 	
-	public float sub(float value1, float value2) {
-	    return value1 - value2;
+	public float sub(float left, float right) {
+	    return left - right;
 	}
 	
-	public float mul(float value1, float value2) {
-	    return value1 * value2;
+	public float mul(float left, float right) {
+	    return left * right;
 	}
 	
-	public float div(float value1, float value2) {
-	    return value1 / value2;
+	public float div(float left, float right) {
+	    return left / right;
 	}
 	
-	public float pow(float value1, float value2) {
-	    float temp = value1;
-	    for(int i = 0; i < (int) value2 - 1; i++) { 
-	        value1 *= temp; 
+	public float pow(float left, float right) {
+	    float temp = left;
+	    for(int i = 0; i < (int) right - 1; i++) { 
+	        left *= temp; 
 	    }
-	    return value1;
+	    return left;
 	} 
 }
