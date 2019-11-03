@@ -1,16 +1,16 @@
 public class Calculator
 {
-	private float value1;
-	private float value2;
+	private float left;
+	private float right;
 	private String operation = "";
 	private float result;
 	
-	public void setValue1(float value1) {
-	    this.value1 = value1;
+	public void setLeft(float left) {
+	    this.left = left;
 	}
 	
-	public void setValue2(float value2) {
-	    this.value2 = value2;
+	public void setRight(float right) {
+	    this.right = right;
 	}
 	
     public void setOperation(String operation) {
@@ -19,42 +19,42 @@ public class Calculator
 	
 	public void doOperation() {
 		switch(operation) {
-			case "+": add(value1, value2);
+			case "+": add(left, right);
 				break;
-			case "-": sub(value1, value2);
+			case "-": sub(left, right);
 				break;
-			case "*": mul(value1, value2);
+			case "*": mul(left, right);
 				break;
-			case "/": div(value1, value2);
+			case "/": div(left, right);
 				break;
-			case "^": pow(value1, value2);
+			case "^": pow(left, right);
 				break;
 			default: System.out.println("Неверный символ");
 		}
 	}
 	
-	public void add(float value1, float value2) {
-	    result = value1 + value2;
+	public void add(float left, float right) {
+	    result = left + right;
 	}
 	
-	public void sub(float value1, float value2) {
-	    result = value1 - value2;
+	public void sub(float left, float right) {
+	    result = left - right;
 	}
 	
-	public void mul(float value1, float value2) {
-	    result = value1 * value2;
+	public void mul(float left, float right) {
+	    result = left * right;
 	}
 	
-	public void div(float value1, float value2) {
-	    result = value1 / value2;
+	public void div(float left, float right) {
+	    result = left / right;
 	}
 	
-	public void pow(float value1, float value2) {
-	    float temp = value1;
-	    for(int i = 0; i < (int) value2 - 1; i++) { 
-	        value1 *= temp; 
+	public void pow(float left, float right) {
+	    float temp = left;
+	    for(int i = 0; i < (int) right - 1; i++) { 
+	        left *= temp; 
 	    }
-	    result = value1;
+	    result = left;
 	}
 	
 	public float getResult() {
