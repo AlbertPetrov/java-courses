@@ -14,7 +14,7 @@ public class VeterinaryClinic {
 		Client client = getClient();
 	    showClient(client);
 	    showActions();
-	    doAction(askInfo("номер действия"), client);
+	    doAction(askInfo("РЅРѕРјРµСЂ РґРµР№СЃС‚РІРёСЏ"), client);
 	    run();
 	}
 	
@@ -22,29 +22,29 @@ public class VeterinaryClinic {
 		try 
 		{
 		int id = Integer.parseInt(askInfo("id"));
-	    String clientName = askInfo("полное имя");
-	    String petName = askInfo("имя питомца");
+	    String clientName = askInfo("РїРѕР»РЅРѕРµ РёРјСЏ");
+	    String petName = askInfo("РёРјСЏ РїРёС‚РѕРјС†Р°");
 	
 	    Optional<Client> o = findClient(id, clientName, petName);
 	
 	    if(o.isPresent()) {
-	        System.out.println("Клиент найден:");
+	        System.out.println("РљР»РёРµРЅС‚ РЅР°Р№РґРµРЅ:");
 	        return o.get(); 
 	    } else {
 	    	Client client = new Client(clientName, id, new Pet(petName));
-	        System.out.println("Новый клиент добавлен:");
+	        System.out.println("РќРѕРІС‹Р№ РєР»РёРµРЅС‚ РґРѕР±Р°РІР»РµРЅ:");
 	        clients.add(client);
 	        return client;
 	    }
 		} catch(NumberFormatException e) {
-	        System.out.println("ОШИБКА! id должен быть целым числом");
+	        System.out.println("РћРЁРР‘РљРђ! id РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ С†РµР»С‹Рј С‡РёСЃР»РѕРј");
 	        getClient();
 	    }
 		return null;
 	}
 	
 	private String askInfo(String info) {
-	    System.out.print("Введите " + info + ":");
+	    System.out.print("Р’РІРµРґРёС‚Рµ " + info + ":");
 	    return scanner.nextLine();
 	}
 	
@@ -55,40 +55,40 @@ public class VeterinaryClinic {
 	}
 	
 	private void showClient(Client client) {
-	    System.out.println("Имя - " + client.getName() +
-	    "\nid - " + client.getId() + "\nИмя питомца - " +
+	    System.out.println("РРјСЏ - " + client.getName() +
+	    "\nid - " + client.getId() + "\nРРјСЏ РїРёС‚РѕРјС†Р° - " +
 	    client.getPet().getName());
 	}
 	
 	private void showActions() {
-	    System.out.println("Введите комманды:\n" +
-	    "1 - Изменить имя клиента\n" + "2 - Изменить имя питомца\n" +
-	    "3 - Уйти из клиники навсегда\n" +
-	    "4 - Уйти из клиники домой(Перейти к следующему клиенту).\n" +
-	    "5 - Выйти из программы\n" +
-	    "Ожидание:");
+	    System.out.println("Р’РІРµРґРёС‚Рµ РєРѕРјРјР°РЅРґС‹:\n" +
+	    "1 - РР·РјРµРЅРёС‚СЊ РёРјСЏ РєР»РёРµРЅС‚Р°\n" + "2 - РР·РјРµРЅРёС‚СЊ РёРјСЏ РїРёС‚РѕРјС†Р°\n" +
+	    "3 - РЈР№С‚Рё РёР· РєР»РёРЅРёРєРё РЅР°РІСЃРµРіРґР°\n" +
+	    "4 - РЈР№С‚Рё РёР· РєР»РёРЅРёРєРё РґРѕРјРѕР№(РџРµСЂРµР№С‚Рё Рє СЃР»РµРґСѓСЋС‰РµРјСѓ РєР»РёРµРЅС‚Сѓ).\n" +
+	    "5 - Р’С‹Р№С‚Рё РёР· РїСЂРѕРіСЂР°РјРјС‹\n" +
+	    "РћР¶РёРґР°РЅРёРµ:");
 	}
 	
 	private void doAction(String number, Client client) {
 	    switch(number) 
 	    {
-	    case "1": client.setName(askInfo("новое имя клиента"));
-                  System.out.println("Имя клиента изменено.");
-                  doAction(askInfo("номер нового действия:"), client);
+	    case "1": client.setName(askInfo("РЅРѕРІРѕРµ РёРјСЏ РєР»РёРµРЅС‚Р°"));
+                  System.out.println("РРјСЏ РєР»РёРµРЅС‚Р° РёР·РјРµРЅРµРЅРѕ.");
+                  doAction(askInfo("РЅРѕРјРµСЂ РЅРѕРІРѕРіРѕ РґРµР№СЃС‚РІРёСЏ:"), client);
 	            break;
-	    case "2": client.getPet().setName(askInfo("новое имя питомца")); 
-                  System.out.println("Имя питомца изменено.");
-                  doAction(askInfo("номер нового действия:"), client);
+	    case "2": client.getPet().setName(askInfo("РЅРѕРІРѕРµ РёРјСЏ РїРёС‚РѕРјС†Р°")); 
+                  System.out.println("РРјСЏ РїРёС‚РѕРјС†Р° РёР·РјРµРЅРµРЅРѕ.");
+                  doAction(askInfo("РЅРѕРјРµСЂ РЅРѕРІРѕРіРѕ РґРµР№СЃС‚РІРёСЏ:"), client);
 	            break;
 	    case "3": clients.remove(client);
-	    		  System.out.println("Вы ушли из клиники навсегда.");
+	    		  System.out.println("Р’С‹ СѓС€Р»Рё РёР· РєР»РёРЅРёРєРё РЅР°РІСЃРµРіРґР°.");
 	            break;
 	    case "4":
 	            break;
 	    case "5":
-		  	    System.out.println("До свидания.");
+		  	    System.out.println("Р”Рѕ СЃРІРёРґР°РЅРёСЏ.");
 		        System.exit(0);
-	    default: System.out.println("ОШИБКА! Неправильный номер действия.");
+	    default: System.out.println("РћРЁРР‘РљРђ! РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РЅРѕРјРµСЂ РґРµР№СЃС‚РІРёСЏ.");
 	        doAction(number, client);       
 	    }
 	}
